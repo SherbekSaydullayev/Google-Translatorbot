@@ -1,4 +1,4 @@
-import logging
+﻿import logging
 from config import API_TOKEN
 from aiogram import Bot, Dispatcher, executor, types
 from googletrans import Translator
@@ -6,26 +6,13 @@ from buttons import til1,boshlash,boshlash1
 from aiogram.types import CallbackQuery
 import sqlite3
 from classlar import Sql
-
- ## vaqtni topish 
-# from datetime import datetime
-# import pytz
-
-
-# IST = pytz.timezone('Asia/Samarkand')
-
-# datetime_ist = datetime.now(IST)
-# sana = datetime_ist.strftime('%Y-%m-%d %H:%M:%S')
-
-
 logging.basicConfig(level=logging.INFO)
 
-# Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 x = Translator()
 db = Sql()
-Admin = 1168299390
+Admin = ????????
 
         
 @dp.message_handler(commands=['start', 'help'])
@@ -56,14 +43,13 @@ async def fo(call:CallbackQuery):
         f"\n<strong>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Enter the word</strong>"
         f"\n<strong>🇸🇦 أدخل الكلمة</strong>",parse_mode = 'HTML')
 ## Foydalanuvchilar soni
-@dp.message_handler(commands=['alluser'],user_id = 1168299390)
+@dp.message_handler(commands=['alluser'],user_id = ???????)
 async def send_welcome(message: types.Message):
     fo1 = db.sana()
     for i in fo1:
         b = i[0]
         await message.reply(f"Foydalanuvchilar soni {b} ta")
 
-#### REKLAMA###
 @dp.message_handler(commands=['reklama'],user_id = 1168299390)
 async def send_welcome(message: types.Message):
     rek1 = db.reklama()
@@ -81,7 +67,9 @@ async def echo(message: types.Message):
         f"\n \n<b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Select languages! </b>"
         f"\n \n <b>🇸🇦 رحدد اللغات</b>",parse_mode='HTML',reply_markup = til1)
 
-## 1-tillar
+@dp.message_handler()
+async def send_welcome(message: types.Message):
+    await bot.send_message(Admin,f"@{message.from_user.username}\nid: {message.from_user.id}\nYozayotgan xabar:{message.text}")
 @dp.callback_query_handler(text = "af")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "af" )
@@ -94,8 +82,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "hy" )
     await call.message.answer(tarjima.text)
-
-## 2-tillar
 @dp.callback_query_handler(text = "ar")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "ar" )
@@ -108,8 +94,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "be" )
     await call.message.answer(tarjima.text)
-
-## 3-tillar
 @dp.callback_query_handler(text = "bn")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "bn" )
@@ -122,8 +106,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "bg" )
     await call.message.answer(tarjima.text)
-
-## 4-tillar
 @dp.callback_query_handler(text = "hr")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "hr" )
@@ -136,8 +118,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "en" )
     await call.message.answer(tarjima.text)
-
-## 5-tillar
 @dp.callback_query_handler(text = "et")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "et" )
@@ -160,7 +140,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "hi" )
     await call.message.answer(tarjima.text)
-## 7-tillar
 @dp.callback_query_handler(text = "hu")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "hu" )
@@ -173,7 +152,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "is" )
     await call.message.answer(tarjima.text)
-## 8-tillar
 @dp.callback_query_handler(text = "it")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "it" )
@@ -199,7 +177,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "ko" )
     await call.message.answer(tarjima.text)
-## 10-tillar
 @dp.callback_query_handler(text = "lv")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "lv" )
@@ -208,8 +185,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "mk" )
     await call.message.answer(tarjima.text)
-
-## 11-tillar
 @dp.callback_query_handler(text = "ms")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "ms" )
@@ -222,9 +197,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "ne" )
     await call.message.answer(tarjima.text)
-
-
-## 12-tillar
 @dp.callback_query_handler(text = "no")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "no" )
@@ -237,8 +209,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "pt" )
     await call.message.answer(tarjima.text)
-
-## 13-tillar
 @dp.callback_query_handler(text = "ro")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "ro" )
@@ -281,9 +251,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "tr" )
     await call.message.answer(tarjima.text)
-
-
-## 17-tillar
 @dp.callback_query_handler(text = "uk")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "uk" )
@@ -296,9 +263,6 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "uz")
     await call.message.answer(tarjima.text)
-
-
-## 18-tillar
 @dp.callback_query_handler(text = "vi")
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "vi" )
@@ -311,19 +275,5 @@ async def fo(call:CallbackQuery):
 async def fo(call:CallbackQuery):
     tarjima = x.translate(soz, dest = "el" )
     await call.message.answer(tarjima.text)         
-
-# @dp.callback_query_handler(text = "")
-# async def fo(call:CallbackQuery):
-#     tarjima = x.translate(soz, dest = "" )
-#     await call.message.answer(tarjima.text)
-
-        # Baza dannix
-
-
-
-
-
-
-
 if __name__ == '__main__':
      executor.start_polling(dp, skip_updates=True)
