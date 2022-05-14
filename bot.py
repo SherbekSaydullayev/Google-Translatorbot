@@ -63,7 +63,7 @@ async def send_welcome(message: types.Message):
         b = i[0]
         await message.reply(f"Foydalanuvchilar soni {b} ta")
 
-#### REKLAMA
+#### REKLAMA###
 @dp.message_handler(commands=['reklama'],user_id = 1168299390)
 async def send_welcome(message: types.Message):
     rek1 = db.reklama()
