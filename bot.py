@@ -61,7 +61,7 @@ async def send_welcome(message: types.Message):
     fo1 = db.sana()
     for i in fo1:
         b = i[0]
-        await message.reply("Foydalanuvchilar soni {b} ta")
+        await message.reply(f"Foydalanuvchilar soni {b} ta")
 
 #### REKLAMA
 @dp.message_handler(commands=['reklama'],user_id = 1168299390)
